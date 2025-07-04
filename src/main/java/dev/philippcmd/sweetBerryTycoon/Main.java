@@ -1,5 +1,6 @@
 package dev.philippcmd.sweetBerryTycoon;
 
+import dev.philippcmd.sweetBerryTycoon.command.info.VersionCommand;
 import dev.philippcmd.sweetBerryTycoon.manager.CoinManager;
 import dev.philippcmd.sweetBerryTycoon.command.economy.CoinsCommand;
 import dev.philippcmd.sweetBerryTycoon.command.economy.AddCoinsCommand;
@@ -18,6 +19,7 @@ public class Main extends JavaPlugin {
 
         coinManager = new CoinManager(this);
 
+        getCommand("version").setExecutor(new VersionCommand(this));
         getCommand("coins").setExecutor(new CoinsCommand(coinManager));
         getCommand("addcoins").setExecutor(new AddCoinsCommand(coinManager));
 
@@ -37,4 +39,6 @@ public class Main extends JavaPlugin {
     public CoinManager getCoinManager() {
         return coinManager;
     }
+
+    public String plugin_version = getDescription().getVersion();
 }

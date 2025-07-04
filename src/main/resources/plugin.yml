@@ -7,6 +7,9 @@ description: Full SweetBerry Tycoon Server System
 website: philippcmd.github.io
 
 commands:
+  version:
+    description: shows the version of the plugin running on the server
+
   coins:
     description: shows a players amount of coins
     usage: /coins
