@@ -1,0 +1,16 @@
+name: SweetBerryTycoon
+version: '1.0-SNAPSHOT'
+main: dev.philippcmd.sweetBerryTycoon.Main
+api-version: '1.21'
+authors: [ PhilippCMD ]
+description: Full SweetBerry Tycoon Server System
+website: philippcmd.github.io
+
+commands:
+  coins:
+    description: shows a players amount of coins
+    usage: /coins
+
+  addcoins:
+    description: admin command to add a specific amount of coins to a player
+    usage: /addcoins <player> <amount>
