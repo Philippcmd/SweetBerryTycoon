@@ -21,13 +21,13 @@ public class Main extends JavaPlugin {
         getCommand("coins").setExecutor(new CoinsCommand(coinManager));
         getCommand("addcoins").setExecutor(new AddCoinsCommand(coinManager));
 
-        getLogger().info("CoinSystem enabled.");
+        getLogger().info("SweetBerry Tycoon system enabled");
     }
 
     @Override
     public void onDisable() {
         saveConfig(); // Persist any data to config
-        getLogger().info("CoinSystem disabled.");
+        getLogger().info("SweetBerry Tycoon system disabled.");
     }
 
     public static Main getInstance() {
