@@ -1,10 +1,13 @@
 package dev.philippcmd.sweetBerryTycoon;
 
 import dev.philippcmd.sweetBerryTycoon.command.info.VersionCommand;
+import dev.philippcmd.sweetBerryTycoon.event.BerryHarvestListener;
 import dev.philippcmd.sweetBerryTycoon.manager.CoinManager;
 import dev.philippcmd.sweetBerryTycoon.command.economy.CoinsCommand;
 import dev.philippcmd.sweetBerryTycoon.command.economy.AddCoinsCommand;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -15,13 +18,16 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        saveDefaultConfig(); // Create config.yml if it doesn't exist
+        saveDefaultConfig();
 
         coinManager = new CoinManager(this);
 
         getCommand("version").setExecutor(new VersionCommand(this));
         getCommand("coins").setExecutor(new CoinsCommand(coinManager));
         getCommand("addcoins").setExecutor(new AddCoinsCommand(coinManager));
+
+        final PluginManager pluginManager = Bukkit.getPluginManager();
+        pluginManager.registerEvents(new BerryHarvestListener(this), this);
 
         getLogger().info("SweetBerry Tycoon system enabled");
     }
@@ -39,6 +45,4 @@ public class Main extends JavaPlugin {
     public CoinManager getCoinManager() {
         return coinManager;
     }
-
-    public String plugin_version = getDescription().getVersion();
 }

@@ -1,8 +1,11 @@
 package dev.philippcmd.sweetBerryTycoon.manager;
 
 import dev.philippcmd.sweetBerryTycoon.Main;
-import org.bukkit.configuration.file.FileConfiguration;
+
 import java.util.UUID;
+
+import org.bukkit.configuration.file.FileConfiguration;
+
 
 public class CoinManager {
 
